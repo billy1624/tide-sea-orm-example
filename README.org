@@ -1,0 +1,26 @@
+* tide-sea-orm-example
+This is an example to showcase how Tide + Sea-ORM work together and
+the issue with tests.
+
+** Setup
+To have the application working you have setup the database locally with
+- username = tide
+- password = tide_pass
+- host = localhost
+- port = 5432
+- database = tide_db
+
+which is formatted into database_string "postgres:/tide:tide_pass@localhost:5432/tide_db"
+
+For simplicity sake I have added `docker-compose.yaml` which will do that for
+you if you have docker installed. All you need to do is to run with
+`docker-compose up -d`
+
+** Running tide server
+Once the database is running all you need is to run `cargo run`
+
+** Running tests
+This is the part I want to highlight which is failing because of `Clone` in
+relation to `sea-orm` feature called `mock`.
+
+`cargo test` will fail with error.

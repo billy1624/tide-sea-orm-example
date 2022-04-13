@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  db:
+    image: 'postgres:14'
+    container_name: 'tide_sea_orm_db'
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=tide
+      - POSTGRES_PASSWORD=tide_pass
+      - POSTGRES_DB=tide_db
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:

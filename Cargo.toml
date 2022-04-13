@@ -1,0 +1,26 @@
+[package]
+name = "tide-sea-orm-example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tide = "0.16.0"
+async-std = { version = "1.8.0", features = ["attributes"] }
+serde = { version = "1.0", features = ["derive"] }
+
+[dependencies.sea-orm]
+version = "0.7.1"
+features = [
+  "sqlx-postgres",
+  "runtime-async-std-rustls",
+  "macros"
+]
+
+[dev-dependencies.sea-orm]
+version = "0.7.1"
+features = [
+  "mock"
+]
+
+[dev-dependencies.tide-testing]
+version = "0.1.3"
